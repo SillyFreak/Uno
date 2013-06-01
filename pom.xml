@@ -2,27 +2,17 @@
  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
  <modelVersion>4.0.0</modelVersion>
 
- <groupId>template</groupId>
- <artifactId>template</artifactId>
+ <groupId>net.slightlymagic</groupId>
+ <artifactId>Uno</artifactId>
  <version>0.0.1-SNAPSHOT</version>
- <name>template</name>
- <description>template project</description>
+ <name>Uno</name>
+ <description>Uno</description>
  
  <properties>
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
  </properties>
  
  <build>
-  <resources>
-   <resource>
-    <directory>src/main/resources</directory>
-   </resource>
-  </resources>
-  <testResources>
-   <testResource>
-    <directory>src/test/resources</directory>
-   </testResource>
-  </testResources>
   <pluginManagement>
    <plugins>
     <plugin>
@@ -35,5 +25,37 @@
     </plugin>
    </plugins>
   </pluginManagement>
+  <plugins>
+   <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>build-helper-maven-plugin</artifactId>
+    <version>1.7</version>
+    <executions>
+     <execution>
+      <goals>
+       <goal>add-source</goal>
+      </goals>
+      <configuration>
+       <sources>
+        <source>${project.build.directory}/generated-sources/protobuf</source>
+       </sources>
+      </configuration>
+     </execution>
+    </executions>
+   </plugin>
+  </plugins>
  </build>
+
+ <dependencies>
+  <dependency>
+   <groupId>at.pria.koza</groupId>
+   <artifactId>polybuf</artifactId>
+   <version>0.0.2</version>
+  </dependency>
+  <dependency>
+   <groupId>at.pria.koza</groupId>
+   <artifactId>harmonic</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+  </dependency>
+ </dependencies>
 </project>
