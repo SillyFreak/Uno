@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import at.pria.koza.harmonic.AEntity;
 import at.pria.koza.harmonic.Engine;
+import at.pria.koza.harmonic.Entity;
 
 
 /**
@@ -26,7 +26,7 @@ import at.pria.koza.harmonic.Engine;
  * @version V0.0 01.06.2013
  * @author Clemens Koza
  */
-public class UnoGame extends AEntity {
+public class UnoGame implements Entity {
     private static final long     serialVersionUID       = 8942624581281838040L;
     
     private final Random          random;
@@ -37,7 +37,6 @@ public class UnoGame extends AEntity {
     private int                   currentPlayerIncrement = 1;
     
     public UnoGame(Engine engine) {
-        super(engine);
         random = new Random(); //TODO modifications
         players = new ArrayList<>(); //TODO modifications
         view = unmodifiableList(players);

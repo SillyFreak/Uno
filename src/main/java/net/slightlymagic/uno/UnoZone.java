@@ -15,8 +15,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import at.pria.koza.harmonic.AEntity;
 import at.pria.koza.harmonic.Engine;
+import at.pria.koza.harmonic.Entity;
 
 
 /**
@@ -27,13 +27,12 @@ import at.pria.koza.harmonic.Engine;
  * @version V0.0 01.06.2013
  * @author Clemens Koza
  */
-public class UnoZone extends AEntity implements Iterable<UnoCard> {
+public class UnoZone implements Entity, Iterable<UnoCard> {
     private static final long serialVersionUID = -8183632314265874214L;
     
     private final List<UnoCard> cards, view;
     
     public UnoZone(Engine engine) {
-        super(engine);
         cards = new ArrayList<>(); //TODO modifications
         view = unmodifiableList(cards);
     }

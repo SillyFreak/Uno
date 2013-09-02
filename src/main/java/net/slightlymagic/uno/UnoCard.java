@@ -7,8 +7,8 @@
 package net.slightlymagic.uno;
 
 
-import at.pria.koza.harmonic.AEntity;
 import at.pria.koza.harmonic.Engine;
+import at.pria.koza.harmonic.Entity;
 
 
 /**
@@ -19,7 +19,7 @@ import at.pria.koza.harmonic.Engine;
  * @version V0.0 01.06.2013
  * @author Clemens Koza
  */
-public class UnoCard extends AEntity {
+public class UnoCard implements Entity {
     private static final long serialVersionUID = 4696630557479973898L;
     
     public static final int   NUMBER           = 0, DRAW_TWO = 1, REVERSE = 2, SKIP = 3, WILD = 4, DRAW_FOUR = 5;
@@ -57,7 +57,6 @@ public class UnoCard extends AEntity {
     }
     
     private UnoCard(Engine engine, int kind, int color, int number) {
-        super(engine);
         this.kind = kind;
         this.color = color;
         this.number = number;
