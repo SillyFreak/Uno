@@ -1,0 +1,17 @@
+package uno;
+
+import "at/pria/koza/polybuf/polybuf.proto";
+import "at/pria/koza/harmonic/harmonic.proto";
+
+option java_package = "net.slightlymagic.uno.proto";
+option java_outer_classname = "Uno";
+
+message NewGameActionP {
+	extend polybuf.Obj {
+		optional NewGameActionP new_game_action = 300;
+	}
+	
+	optional uint32		num_players	= 1;
+	optional fixed64	seed		= 2;
+}
+
