@@ -38,8 +38,6 @@ public class Uno {
         
         Thread.sleep(100);
         
-        System.out.println(host.getGame().getPlayers().get(0).getHand().getCards());
-        
         {
             JFrame jf = new JFrame(format("%08X", host.getEngine().getId()));
             jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

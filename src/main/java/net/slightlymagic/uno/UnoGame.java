@@ -52,6 +52,10 @@ public class UnoGame implements Entity {
         return stack;
     }
     
+    public UnoZone getDeck() {
+        return deck;
+    }
+    
     public UnoPlayer getCurrentPlayer() {
         return players.get(currentPlayer);
     }
