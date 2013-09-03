@@ -7,6 +7,7 @@
 package net.slightlymagic.uno;
 
 
+import static java.lang.String.*;
 import at.pria.koza.harmonic.Engine;
 import at.pria.koza.harmonic.Entity;
 
@@ -20,12 +21,16 @@ import at.pria.koza.harmonic.Entity;
  * @author Clemens Koza
  */
 public class UnoCard implements Entity {
-    private static final long serialVersionUID = 4696630557479973898L;
+    private static final long     serialVersionUID = 4696630557479973898L;
     
-    public static final int   NUMBER           = 0, DRAW_TWO = 1, REVERSE = 2, SKIP = 3, WILD = 4, DRAW_FOUR = 5;
-    public static final int   BLACK            = 0, BLUE = 1, GREEN = 2, RED = 3, YELLOW = 4;
+    private static final String[] kindNames        = {null, "+2", "reverse", "skip", "wild", "+4"};
+    private static final String[] colorNames       = {null, "blue", "green", "red", "yellow"};
     
-    private final int         kind, color, number;
+    public static final int       NUMBER           = 0, DRAW_TWO = 1, REVERSE = 2, SKIP = 3, WILD = 4,
+            DRAW_FOUR = 5;
+    public static final int       BLACK            = 0, BLUE = 1, GREEN = 2, RED = 3, YELLOW = 4;
+    
+    private final int             kind, color, number;
     
     public static UnoCard number(Engine engine, int color, int number) {
         if(color < 1 || color > 4) throw new IllegalArgumentException();
@@ -72,5 +77,13 @@ public class UnoCard implements Entity {
     
     public int getNumber() {
         return number;
+    }
+    
+    @Override
+    public String toString() {
+        String color = colorNames[this.color];
+        String kind = kindNames[this.kind];
+        String str = (color == null? "":color + " ") + (kind == null? "" + number:kind);
+        return format("%s:%s@%08X:%s", str, getClass().getSimpleName(), getId(), getEngine());
     }
 }
